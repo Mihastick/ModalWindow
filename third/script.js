@@ -1,3 +1,5 @@
+const d = document;
+
 let cards = [
     {
         id: '1',
@@ -19,9 +21,7 @@ let cards = [
     }
 ]
 
-
-
-let cardsCont = document.getElementById('cards');
+let cardsCont = d.getElementById('cards');
 
 createManyCards(cards, cardsCont);
 
@@ -49,13 +49,16 @@ function cutText(text, length = 100) {
     return text.substr(0, length) + '...';
 }
 
-document.querySelectorAll('.but-info').forEach(btn => {
+d.querySelectorAll('.but-info').forEach(btn => {
     btn.addEventListener('click', show);
 });
 
 let num;
 
-const modal = document.querySelector('.modal');
+let prevbut = d.getElementById('prev');
+let nextbut = d.getElementById('next');
+
+const modal = d.querySelector('.modal');
 
 function show(e) {
     modal.style.display = 'flex';
@@ -66,25 +69,35 @@ function show(e) {
 
 function showCard(array, e) {
     let { img, body, head } = array.find(item => item.id == num);
-    document.querySelector('.leftCont > img').src = img;
-    document.querySelector('.rightCont > h3').textContent = head;
-    document.querySelector('.rightCont > p').textContent = body;
+    d.querySelector('.leftCont > img').src = img;
+    d.querySelector('.rightCont > h3').textContent = head;
+    d.querySelector('.rightCont > p').textContent = body;
+    if(num==1){
+        prevbut.classList.add('hiden');
+    }
+    else{
+        prevbut.classList.remove('hiden');
+    }
+    if(num==3){
+        nextbut.classList.add('hiden');
+    }
+    else{
+        nextbut.classList.remove('hiden');
+    }
+    
 }
 
-let prevbut = document.getElementById('prev');
-let nextbut = document.getElementById('next');
-
 prevbut.addEventListener('click', (e) => {
-    if(num>1){
+    if (num > 1) {
         --num;
-        showCard(cards,e);
+        showCard(cards, e);
     }
 });
 
 nextbut.addEventListener('click', (e) => {
-    if(num<=cards.length){
+    if (num <= cards.length) {
         num++;
-        showCard(cards,e);
+        showCard(cards, e);
     }
 });
 
@@ -94,7 +107,7 @@ modal.addEventListener('click', e => {
     }
 });
 
-const crest = document.querySelector('.modalClose');
+const crest = d.querySelector('.modalClose');
 
 crest.addEventListener('click', closeModal);
 
@@ -102,13 +115,13 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-document.addEventListener('keydown', e => {
+d.addEventListener('keydown', e => {
     if (e.code = 'ESC') {
         closeModal();
     }
 });
 
-document.querySelectorAll('.but-delete').forEach(btn => {
+d.querySelectorAll('.but-delete').forEach(btn => {
     btn.addEventListener('click', deleteCard);
 });
 

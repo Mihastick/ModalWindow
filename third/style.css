@@ -108,3 +108,6 @@ button{
     justify-content: center;
     flex-direction: row;
 }
+.hiden{
+    display: none;
+}

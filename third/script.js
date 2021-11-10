@@ -78,13 +78,12 @@ function showCard(array, e) {
     else{
         prevbut.classList.remove('hiden');
     }
-    if(num==3){
+    if(num==cards.length){
         nextbut.classList.add('hiden');
     }
     else{
         nextbut.classList.remove('hiden');
     }
-    
 }
 
 prevbut.addEventListener('click', (e) => {

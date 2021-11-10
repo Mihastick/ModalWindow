@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="modal">
         <div class="closeSimb">&times;</div>
@@ -20,8 +22,25 @@
         <button type="button" id='but2'>Log In</button>
     </div>
     <header>
+            <div class="hamburger-menu">
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                    <span></span>
+                </label>
+                <div class="menu__box">
+                    <a href="#" class="menu__item">Home</a>
+                    <a href="#" class="menu__item">Page</a>
+                    <a href="#" class="menu__item">Link</a>
+                    <a href="#" class="menu__item">Link</a>
+                </div>
+            </div>
         <div class="logo">Laguna</div>
-        <span>+6666666666</span>
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">Page</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+        </div>
         <p id='yourName' class="yn"></p>
         <button type="button" id="but">Sign In</button>
     </header>
@@ -30,4 +49,5 @@
     </section>
     <script src="script.js"></script>
 </body>
+
 </html>

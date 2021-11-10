@@ -54,3 +54,4 @@ closeSimb.addEventListener('click', close);
 function close() {
     modal.style.display = 'none';
 }
+
